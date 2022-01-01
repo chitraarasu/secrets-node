@@ -1,0 +1,28 @@
+body {
+  background-color: #e8ecef;
+}
+
+input[type="checkbox"] {
+  margin-top: 2%;
+}
+
+.centered {
+  padding-top: 200px;
+  text-align: center;
+}
+
+.secret-text {
+  text-align: center;
+  font-size: 2rem;
+  color: #fff;
+  background-color: #000;
+}
+
+@media (max-width: 580px) {
+  .one {
+    margin-bottom: 2%;
+  }
+  .centered {
+    padding-top: 100px;
+  }
+}
