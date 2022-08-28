@@ -37,6 +37,15 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+mongoose.connect(
+  "mongodb+srv://admin-secrets:"+ process.env.mongodb +"@cluster0.1dhxc.mongodb.net/userDB",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+  }
+);
+
 // mongoose.connect("mongodb://localhost:27017/userDB", {
 //     useNewUrlParser: true,
 //     useUnifiedTopology: true,
@@ -79,8 +88,8 @@ passport.deserializeUser(function (id, done) {
 passport.use(
   new GoogleStrategy(
     {
-      clientID: "useYourClientId",
-      clientSecret: "useYourClientSecret",
+      clientID: process.env.googleID,
+      clientSecret: process.env.googleClientSecret,
       callbackURL: "https://secure-secrets.herokuapp.com/auth/google/secrets",
       userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
     },
@@ -101,8 +110,8 @@ passport.use(
 passport.use(
   new FacebookStrategy(
     {
-      clientID: "useYourClientId",
-      clientSecret: "useYourClientSecret",
+      clientID: process.env.fbID,
+      clientSecret: process.env.fbClientID,
       callbackURL: "https://secure-secrets.herokuapp.com/auth/facebook/secrets",
     },
     function (accessToken, refreshToken, profile, cb) {
@@ -121,8 +130,8 @@ passport.use(
 passport.use(
   new LinkedInStrategy(
     {
-      clientID: "useYourClientId",
-      clientSecret: "useYourClientSecret",
+      clientID: process.env.linkedID,
+      clientSecret: process.env.linkedClientID,
       callbackURL: "https://secure-secrets.herokuapp.com/auth/linkedin/secrets",
     },
     function (accessToken, refreshToken, profile, cb) {
