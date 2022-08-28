@@ -1,4 +1,4 @@
 # secrets-node
 
 Output
-https://secure-secrets.herokuapp.com/
+https://secure-secrets.onrender.com/
