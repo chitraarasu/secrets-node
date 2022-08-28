@@ -38,7 +38,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 mongoose.connect(
-  "mongodb+srv://admin-secrets:"+ process.env.mongodb +"@cluster0.1dhxc.mongodb.net/userDB",
+  process.env.mongodb,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
